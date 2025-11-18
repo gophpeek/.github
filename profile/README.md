@@ -7,16 +7,20 @@ PHPeek is the base layer for inspecting how your systems and Laravel application
 
 ## Projects
 - **laravel-queue-metrics**  
-  Measures queue pressure, throughput, latency and worker behaviour. First release pending.
+  Measures queue pressure, throughput, latency and worker behaviour. First release pending.  
+  https://github.com/gophpeek/laravel-queue-metrics
 
 - **system-metrics**  
-  Collects CPU, memory, load, disk and network signals. Released.
+  Collects CPU, memory, load, disk and network signals. Released.  
+  https://github.com/gophpeek/system-metrics
 
 - **queue-autoscale** *(coming)*  
-  Scaling driven by measurable pressure.
+  Scaling driven by measurable pressure.  
+  *(Repo will be added when published.)*
 
 - **queue-dashboard** *(coming)*  
-  Visual inspection of queue state and worker efficiency.
+  Visual inspection of queue state and worker efficiency.  
+  *(Repo will be added when published.)*
 
 ## Direction
 Expose real behaviour instead of assumptions. Build a unified operational layer for Laravel and system environments.
