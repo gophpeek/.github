@@ -14,11 +14,11 @@ PHPeek is the base layer for inspecting how your systems and Laravel application
   Collects CPU, memory, load, disk and network signals. Released.  
   https://github.com/gophpeek/system-metrics
 
-- **queue-autoscale** *(coming)*  
+- **laravel-queue-autoscale** *(coming)*  
   Scaling driven by measurable pressure.  
   *(Repo will be added when published.)*
 
-- **queue-dashboard** *(coming)*  
+- **laravel-queue-dashboard** *(coming)*  
   Visual inspection of queue state and worker efficiency.  
   *(Repo will be added when published.)*
 
