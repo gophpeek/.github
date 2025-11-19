@@ -26,5 +26,9 @@ PHPeek is the base layer for inspecting how your systems and Laravel application
   Visual inspection of queue state and worker efficiency.  
   *(Repo will be added when published.)*
 
+- **baseimages** *(coming)*  
+  Streamlined PHP images for development and production with tuned entrypoints, health checks and clean shutdown handling.
+  *(Repo will be added when published.)*
+
 ## Direction
 Expose real behaviour instead of assumptions. Build a unified operational layer for Laravel and system environments.
