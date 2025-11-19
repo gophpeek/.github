@@ -27,7 +27,7 @@ PHPeek is the base layer for inspecting how your systems and Laravel application
   *(Repo will be added when published.)*
 
 - **baseimages** *(coming)*  
-  Streamlined PHP images for development and production with tuned entrypoints, health checks and clean shutdown handling.  
+  Streamlined PHP images for dev and production with hardened entrypoints, integrated health checks, clean shutdown logic and built-in Prometheus metric exporters. 
   *(Repo will be added when published.)*
 
 ## Direction
