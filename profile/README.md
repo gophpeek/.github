@@ -18,6 +18,10 @@ PHPeek is the base layer for inspecting how your systems and Laravel application
   Scaling driven by measurable pressure.  
   *(Repo will be added when published.)*
 
+- **laravel-queue-monitor** *(coming)*  
+  Tracks each job’s execution details with full processing metadata and supports job replay.
+  *(Repo will be added when published.)*
+
 - **laravel-queue-dashboard** *(coming)*  
   Visual inspection of queue state and worker efficiency.  
   *(Repo will be added when published.)*
