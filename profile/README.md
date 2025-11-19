@@ -19,7 +19,7 @@ PHPeek is the base layer for inspecting how your systems and Laravel application
   *(Repo will be added when published.)*
 
 - **laravel-queue-monitor** *(coming)*  
-  Tracks each job’s execution details with full processing metadata and supports job replay.
+  Tracks each job’s execution details with full processing metadata and supports job replay.  
   *(Repo will be added when published.)*
 
 - **laravel-queue-dashboard** *(coming)*  
@@ -27,7 +27,7 @@ PHPeek is the base layer for inspecting how your systems and Laravel application
   *(Repo will be added when published.)*
 
 - **baseimages** *(coming)*  
-  Streamlined PHP images for development and production with tuned entrypoints, health checks and clean shutdown handling.
+  Streamlined PHP images for development and production with tuned entrypoints, health checks and clean shutdown handling.  
   *(Repo will be added when published.)*
 
 ## Direction
