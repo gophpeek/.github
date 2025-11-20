@@ -28,8 +28,8 @@ PHPeek is the base layer for inspecting how your systems and Laravel application
 
 - **phpeek-pm** *(coming)*  
   A process manager for multi-service workloads in containers. PID 1 signal handling with zombie reaping and configuration system. Structured JSON logging.
-  *(Repo will be added when published.)*
-
+  https://github.com/gophpeek/phpeek-pm
+  
 - **baseimages** *(coming)*  
   Streamlined PHP images for dev and production with hardened entrypoints, integrated health checks, clean shutdown logic and built-in Prometheus metric exporters. 
   *(Repo will be added when published.)*
