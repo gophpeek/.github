@@ -7,7 +7,7 @@ PHPeek is the base layer for inspecting how your systems and Laravel application
 
 ## Projects
 - **laravel-queue-metrics**  
-  Measures queue pressure, throughput, latency and worker behaviour. First release pending.  
+  Measures queue pressure, throughput, latency and worker behaviour.
   https://github.com/gophpeek/laravel-queue-metrics
 
 - **system-metrics**  
@@ -24,6 +24,10 @@ PHPeek is the base layer for inspecting how your systems and Laravel application
 
 - **laravel-queue-dashboard** *(coming)*  
   Visual inspection of queue state and worker efficiency.  
+  *(Repo will be added when published.)*
+
+- **phpeek-pm** *(coming)*  
+  A process manager for multi-service workloads in containers. PID 1 signal handling with zombie reaping and configuration system. Structured JSON logging.
   *(Repo will be added when published.)*
 
 - **baseimages** *(coming)*  
