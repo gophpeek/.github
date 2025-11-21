@@ -26,7 +26,7 @@ PHPeek is the base layer for inspecting how your systems and Laravel application
   Visual inspection of queue state and worker efficiency.  
   *(Repo will be added when published.)*
 
-- **phpeek-pm** *(coming)*  
+- **phpeek-pm**
   A process manager for multi-service workloads in containers. PID 1 signal handling with zombie reaping and configuration system. Structured JSON logging.  
   https://github.com/gophpeek/phpeek-pm
   
