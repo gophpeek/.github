@@ -16,7 +16,7 @@ PHPeek is the base layer for inspecting how your systems and Laravel application
 
 - **laravel-queue-autoscale** *(coming)*  
   Scaling driven by measurable pressure.  
-  *(Repo will be added when published.)*
+  https://github.com/gophpeek/laravel-queue-autoscaler
 
 - **laravel-queue-monitor** *(coming)*  
   Tracks each job’s execution details with full processing metadata and supports job replay.  
@@ -31,8 +31,13 @@ PHPeek is the base layer for inspecting how your systems and Laravel application
   https://github.com/gophpeek/phpeek-pm
   
 - **baseimages** *(coming)*  
-  Streamlined PHP images for dev and production with hardened entrypoints, integrated health checks, clean shutdown logic and built-in Prometheus metric exporters. 
-  *(Repo will be added when published.)*
+  Streamlined PHP images for dev and production with hardened entrypoints, integrated health checks, clean shutdown logic and built-in Prometheus metric exporters.  
+  https://github.com/gophpeek/baseimages
+  
+- **fcgx**  
+  A minimal, robust, and modern FastCGI client library for Go.  
+  https://github.com/gophpeek/fcgx
+  
 
 ## Direction
 Expose real behaviour instead of assumptions. Build a unified operational layer for Laravel and system environments.
