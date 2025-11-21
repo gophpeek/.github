@@ -16,7 +16,7 @@ PHPeek is the base layer for inspecting how your systems and Laravel application
 
 - **laravel-queue-autoscale** *(coming)*  
   Scaling driven by measurable pressure.  
-  https://github.com/gophpeek/laravel-queue-autoscaler
+  https://github.com/gophpeek/laravel-queue-autoscale
 
 - **laravel-queue-monitor** *(coming)*  
   Tracks each job’s execution details with full processing metadata and supports job replay.  
