@@ -52,17 +52,17 @@ Images available at `ghcr.io/gophpeek/baseimages/`.
 │                     Docker Container                            │
 │  ┌──────────────────────────────────────────────────────────┐   │
 │  │ phpeek-pm (PID 1)                                        │   │
-│  │   ├── php-fpm ←── phpeek-fpm-exporter (via fcgx)        │   │
+│  │   ├── php-fpm ←── phpeek-fpm-exporter (via fcgx)         │   │
 │  │   ├── nginx                                              │   │
-│  │   └── queue workers ←── laravel-queue-autoscale         │   │
+│  │   └── queue workers ←── laravel-queue-autoscale          │   │
 │  └──────────────────────────────────────────────────────────┘   │
 │                                                                 │
 │  Laravel Application                                            │
-│    ├── laravel-queue-metrics (job instrumentation)             │
-│    ├── laravel-queue-monitor (job tracking + replay)           │
-│    └── system-metrics (CPU, memory, disk, network)             │
+│    ├── laravel-queue-metrics (job instrumentation)              │
+│    ├── laravel-queue-monitor (job tracking + replay)            │
+│    └── system-metrics (CPU, memory, disk, network)              │
 │                                                                 │
-│  ──────────────────────────────────────────────────────────────│
+│  ────────────────────────────────────────────────────────────── │
 │                         ↓ Prometheus ↓                          │
 └─────────────────────────────────────────────────────────────────┘
 ```
