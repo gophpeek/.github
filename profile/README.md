@@ -1,58 +1,103 @@
 # PHPeek
 
-A platform for observing, understanding and operating modern PHP and Laravel systems — from low-level system signals to high-level application behaviour.
-
-## Scope
-PHPeek provides an integrated stack of inspection and operational components.  
-It spans host-level metrics, PHP runtime processes, Laravel queues, FastCGI communication paths and container orchestration patterns.  
-Metrics are only the foundation. The roadmap includes runtime signals, deep introspection, behavioural analysis, workload optimisation and autoscaling logic.
+Observability and operational tooling for PHP applications.
+System metrics, queue monitoring, process management, and container infrastructure.
 
 ---
 
-## Laravel
+## Laravel Packages
 
-**laravel-queue-metrics**  
-Production-grade queue instrumentation with low overhead. Tracks job execution, worker behaviour, throughput and latency, with automatic Prometheus exporting.  
-https://github.com/gophpeek/laravel-queue-metrics
+| Package | Version | Description |
+|---------|---------|-------------|
+| [laravel-queue-metrics](https://github.com/gophpeek/laravel-queue-metrics) | v1.4 | Queue instrumentation with Prometheus export. Job duration, memory, CPU, throughput, health scores. ~1-2ms overhead per job. |
+| [laravel-queue-autoscale](https://github.com/gophpeek/laravel-queue-autoscale) | v1.0 | SLA-based predictive autoscaling. Uses Little's Law + trend analysis. Respects CPU/memory limits. |
+| [laravel-queue-monitor](https://github.com/gophpeek/laravel-queue-monitor) | v1.1 | Individual job tracking with payload storage. Retry chains, server identification, job replay. REST API included. |
+| [system-metrics](https://github.com/gophpeek/system-metrics) | v1.6 | Pure PHP system metrics. CPU, memory, disk, network. No extensions required. Linux + macOS. |
 
-**laravel-queue-autoscale** *(coming)*  
-Autoscaling driven by real queue pressure and measured worker load.  
-https://github.com/gophpeek/laravel-queue-autoscale
-
-**laravel-queue-monitor** *(coming)*  
-Job-level execution tracking with metadata, history and replay.  
-*(Repo pending.)*
-
-**laravel-queue-dashboard** *(coming)*  
-Visual inspection of queue state, worker efficiency and processing trends.  
-*(Repo pending.)*
+All packages require PHP 8.3+ and Laravel 10+/11+.
 
 ---
 
-## PHP Runtime and System
+## Go Tools
 
-**system-metrics**  
-Host-level CPU, memory, load, disk and network signals collected directly from PHP. Forms the foundation for system-aware PHP runtimes.  
-https://github.com/gophpeek/system-metrics
-
-**phpeek-pm**  
-A process manager for containerised multi-service workloads. Implements PID 1 behaviour, signal handling, zombie reaping, a configuration system and structured JSON logging.  
-https://github.com/gophpeek/phpeek-pm
-
-**baseimages** *(coming)*  
-Unified PHP base images for development and production: hardened entrypoints, health checks, graceful shutdown and integrated Prometheus metric exporters.  
-https://github.com/gophpeek/baseimages
+| Tool | Version | Description |
+|------|---------|-------------|
+| [phpeek-pm](https://github.com/gophpeek/phpeek-pm) | v1.2 | PID 1 process manager for Docker. Manages PHP-FPM, Nginx, Horizon, queue workers. Health checks, Prometheus metrics, TUI. |
+| [phpeek-fpm-exporter](https://github.com/gophpeek/phpeek-fpm-exporter) | v2.0 | Prometheus exporter for PHP-FPM. Pool auto-discovery, opcache stats, Laravel queue sizes. |
+| [fcgx](https://github.com/gophpeek/fcgx) | v1.0 | FastCGI client library. Context/timeout support, structured errors. Used by phpeek-fpm-exporter. |
 
 ---
 
-## Go
+## Docker Images
 
-**fcgx**  
-A minimal, robust FastCGI client library for Go. Enables Go services and agents to communicate efficiently with PHP-based runtimes.  
-https://github.com/gophpeek/fcgx
+| Image | Description |
+|-------|-------------|
+| [baseimages](https://github.com/gophpeek/baseimages) | PHP Docker base images. Three tiers: Slim (~120MB), Standard (~250MB), Full (~700MB). Includes phpeek-pm. PHP 8.3/8.4 on Debian Bookworm. |
+
+Images available at `ghcr.io/gophpeek/baseimages/`.
 
 ---
 
-## Direction
-Reveal how applications and systems actually behave under real workloads.  
-Build a coherent operational layer that spans metrics, processes, runtimes, queues and container environments — enabling deeper insight, better decisions and smarter automation.
+## How They Connect
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     Docker Container                            │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │ phpeek-pm (PID 1)                                        │   │
+│  │   ├── php-fpm ←── phpeek-fpm-exporter (via fcgx)        │   │
+│  │   ├── nginx                                              │   │
+│  │   └── queue workers ←── laravel-queue-autoscale         │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│                                                                 │
+│  Laravel Application                                            │
+│    ├── laravel-queue-metrics (job instrumentation)             │
+│    ├── laravel-queue-monitor (job tracking + replay)           │
+│    └── system-metrics (CPU, memory, disk, network)             │
+│                                                                 │
+│  ──────────────────────────────────────────────────────────────│
+│                         ↓ Prometheus ↓                          │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Quick Start
+
+**Queue monitoring in 30 seconds:**
+
+```bash
+composer require gophpeek/laravel-queue-metrics
+```
+
+```php
+use PHPeek\LaravelQueueMetrics\Facades\QueueMetrics;
+
+$metrics = QueueMetrics::getJobMetrics(ProcessOrder::class);
+echo "P95: {$metrics->duration->p95}ms, Health: {$metrics->health->score}/100";
+```
+
+**System metrics:**
+
+```bash
+composer require gophpeek/system-metrics
+```
+
+```php
+use PHPeek\SystemMetrics\SystemMetrics;
+
+$overview = SystemMetrics::overview()->getValue();
+echo "CPU: {$overview->cpu->coreCount()} cores, Memory: {$overview->memory->usedPercentage()}%";
+```
+
+---
+
+## Documentation
+
+Full docs at [phpeek.com/docs](https://phpeek.com/docs)
+
+---
+
+## License
+
+All packages are MIT licensed.
